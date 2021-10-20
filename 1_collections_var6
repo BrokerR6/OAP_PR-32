@@ -1,0 +1,25 @@
+using System;
+using System.Collections;
+using System.IO;
+
+namespace COLLECTIONS_VAR6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var f = File.ReadAllLines(@"C:\Starodumov\t.txt");
+            foreach (var s in f)
+            {
+                var stack = new Stack();
+                foreach (var c in s)
+                    stack.Push(c);
+                var count = stack.Count;
+                for (var i = 0; i < count; i++)
+                    Console.Write(stack.Pop());
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        }
+    }
+}
