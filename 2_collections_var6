@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+
+namespace COLLECTIONS_VAR6_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Queue<int> lessThenZero = new Queue<int>();
+            Queue<int> moreThenZero = new Queue<int>();
+            int number;
+            using (StreamReader reader = new StreamReader(@"C:\Starodumov\t2.txt", Encoding.Default))
+            {
+                while (!reader.EndOfStream)
+                {
+                    number = int.Parse(reader.ReadLine());
+                    if (number > 0)
+                        lessThenZero.Enqueue(number);
+                    else if (number < 0)
+                        moreThenZero.Enqueue(number);
+                }
+            }
+            Console.WriteLine(string.Join(" ", lessThenZero));
+            Console.WriteLine(string.Join(" ", moreThenZero));
+        }
+    }
+}
